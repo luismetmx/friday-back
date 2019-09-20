@@ -28,19 +28,19 @@ public class ResourcesController
 	}
 	
 	@RequestMapping(value = "/createresource", method = RequestMethod.POST)
-    public ResourcesEntity createSample(@Valid @RequestBody ResourcesEntity resourceEntity) 
+    public ResourcesEntity createResource(@Valid @RequestBody ResourcesEntity resourceEntity) 
 	{
         return resourcesService.createResource(resourceEntity);
     }
  
     @RequestMapping(value = "/deleteresource/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteSample(@PathVariable(value = "id") Long id) 
+    public ResponseEntity<Object> deleteResource(@PathVariable(value = "id") Long id) 
     {
         return resourcesService.deleteResource(id);
     }
  
     @RequestMapping(value = "/updateresource/{id}", method = RequestMethod.PUT)
-    public ResourcesEntity updateSample(@PathVariable(value = "id") Long id,
+    public ResourcesEntity updateResource(@PathVariable(value = "id") Long id,
             @Valid @RequestBody ResourcesEntity resourceEntity) 
     {
         return resourcesService.updateResource(id, resourceEntity);
