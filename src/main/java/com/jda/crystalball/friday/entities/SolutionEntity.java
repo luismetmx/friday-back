@@ -23,8 +23,8 @@ public class SolutionEntity
     @Column(name = "name")
     String name;
     
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<ResourcesEntity> resources;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private Set<ResourcesEntity> resources;
     
     @ManyToOne
     @JoinColumn(name="team_id")
@@ -51,13 +51,13 @@ public class SolutionEntity
 		this.name = name;
 	}
 
-	public Set<ResourcesEntity> getResources() {
-		return resources;
-	}
-
-	public void setResources(Set<ResourcesEntity> resources) {
-		this.resources = resources;
-	}
+//	public Set<ResourcesEntity> getResources() {
+//		return resources;
+//	}
+//
+//	public void setResources(Set<ResourcesEntity> resources) {
+//		this.resources = resources;
+//	}
 
 	public TeamEntity getTeam() {
 		return team;

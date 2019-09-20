@@ -37,7 +37,7 @@ public class SolutionService
 		{
 			SolutionEntity sample = searchEntity.get();
             sample.setName(solution.getName());
-            sample.setResources(solution.getResources());
+            //sample.setResources(solution.getResources());
             sample.setTeam(solution.getTeam());
             updatedSolution = solutionRepository.save(sample);
         } 
