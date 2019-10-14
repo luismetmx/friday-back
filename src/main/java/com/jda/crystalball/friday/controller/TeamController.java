@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,13 +17,14 @@ import com.jda.crystalball.friday.entities.TeamEntity;
 import com.jda.crystalball.friday.services.TeamService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class TeamController 
 {
 	@Autowired
 	TeamService teamService;
 	
 	@RequestMapping(value = "/teams")
-	public List<TeamEntity> getTasks()
+	public List<TeamEntity> getTeams()
 	{
 		return teamService.getAllTeams();
 	}
