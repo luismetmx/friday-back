@@ -2,6 +2,8 @@ package com.jda.crystalball.friday.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,7 +12,8 @@ import javax.persistence.Table;
 public class TeamEntity 
 {
 	@Id
-    @Column(name = "id")
+	@Column(name = "id", updatable = false, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     int Id;
  
     @Column(name = "name")

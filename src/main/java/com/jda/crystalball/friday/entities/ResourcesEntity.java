@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 public class ResourcesEntity 
 {
 	@Id
-    @Column(name = "id")
+	@Column(name = "id", updatable = false, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     int Id;
  

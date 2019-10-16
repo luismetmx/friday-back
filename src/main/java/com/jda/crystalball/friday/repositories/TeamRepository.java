@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.jda.crystalball.friday.entities.TeamEntity;
 
 @Repository
-public interface TeamRepository extends JpaRepository<TeamEntity, Long>{
+public interface TeamRepository extends JpaRepository<TeamEntity, Integer>{
 
 }

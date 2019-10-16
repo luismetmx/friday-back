@@ -27,8 +27,23 @@ public class TeamService
 	{
 		return teamRepository.save(team);
 	}
+
+	public TeamEntity readTeam(int Id)
+	{
+		TeamEntity team;
+		Optional<TeamEntity> searchEntity = teamRepository.findById(Id);
+
+		if (searchEntity.isPresent())
+		{
+			team = searchEntity.get();
+		} else {
+			throw new EntityNotFoundException();
+		}
+
+		return team;
+	}
 	
-	public TeamEntity updateTeam(Long Id, TeamEntity team)
+	public TeamEntity updateTeam(int Id, TeamEntity team)
 	{
 		TeamEntity updatedTeam;
 		Optional<TeamEntity> searchEntity = teamRepository.findById(Id);
@@ -46,7 +61,7 @@ public class TeamService
         return updatedTeam;
 	}
 	
-	public ResponseEntity<Object> deleteTask(Long Id)
+	public ResponseEntity<Object> deleteTask(int Id)
 	{
         Optional<TeamEntity> sampleEntity = teamRepository.findById(Id);
         if (sampleEntity.isPresent()) 
