@@ -36,8 +36,12 @@ public class TaskService
 		if (searchEntity.isPresent()) 
 		{
 			TaskEntity sample = searchEntity.get();
-            sample.setDescription(task.getDescription());
-            sample.setSolutionEntity(task.getSolutionEntity());
+            sample.setName(task.getName());
+			sample.setSolutionEntity(task.getSolutionEntity());
+			sample.setPhase(task.getPhase());
+			sample.setProjectType(task.getProjectType());
+			sample.setTeamEntity(task.getTeamEntity());
+			sample.setIsActive(task.getIsActive());
             updatedTask = taskRepository.save(sample);
         } 
 		else

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +19,11 @@ public class TeamEntity
     int Id;
  
     @Column(name = "name")
-    String name;
+	String name;
+	
+	@ManyToOne()
+	@JoinColumn(name = "sol_id", referencedColumnName = "id", insertable = false, updatable = false)
+	SolutionEntity solution;
 
 	public TeamEntity() 
 	{
@@ -41,6 +47,14 @@ public class TeamEntity
 	public void setName(String name) 
 	{
 		this.name = name;
+	}
+
+	public SolutionEntity getSolution() {
+		return this.solution;
+	}
+
+	public void setSolution(SolutionEntity solution) {
+		this.solution = solution;
 	}
     
 }

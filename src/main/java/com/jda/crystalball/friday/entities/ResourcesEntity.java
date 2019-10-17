@@ -24,9 +24,9 @@ public class ResourcesEntity
     @Column(name = "mail")
     String mail;
     
-    @ManyToOne
-    @JoinColumn(name ="solution_id")
-    private SolutionEntity solutionEntity;
+	@ManyToOne()
+	@JoinColumn(name = "team_id", referencedColumnName = "id", insertable = false, updatable = false)
+	TeamEntity team;
     
     public ResourcesEntity()
     {
@@ -57,14 +57,11 @@ public class ResourcesEntity
 		this.mail = mail;
 	}
 
-	public SolutionEntity getSolutionEntity() {
-		return solutionEntity;
+	public TeamEntity getTeam() {
+		return this.team;
 	}
 
-	public void setSolutionEntity(SolutionEntity solutionEntity) {
-		this.solutionEntity = solutionEntity;
+	public void setTeam(TeamEntity team) {
+		this.team = team;
 	}
-    
-    
-    
 }

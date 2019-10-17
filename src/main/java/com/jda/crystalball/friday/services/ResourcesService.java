@@ -38,7 +38,7 @@ public class ResourcesService
 			ResourcesEntity sample = searchEntity.get();
             sample.setMail(resource.getMail());
             sample.setName(resource.getName());
-            sample.setSolutionEntity(resource.getSolutionEntity());
+            sample.setTeam(resource.getTeam());
             updatedResource = resourcesRepository.save(sample);
         } 
 		else

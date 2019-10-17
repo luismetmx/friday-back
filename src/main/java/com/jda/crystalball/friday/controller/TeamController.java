@@ -1,6 +1,5 @@
 package com.jda.crystalball.friday.controller;
 
-import java.io.Console;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -53,7 +52,7 @@ public class TeamController
     }
  
     @RequestMapping(value = "/updateteam/{id}", method = RequestMethod.PUT)
-    public TeamEntity updateTask(@PathVariable(value = "id") int id,
+    public TeamEntity updateTeam(@PathVariable(value = "id") int id,
             @Valid @RequestBody TeamEntity teamEntity) 
     {
         return teamService.updateTeam(id, teamEntity);
