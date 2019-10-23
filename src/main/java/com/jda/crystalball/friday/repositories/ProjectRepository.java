@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.jda.crystalball.friday.entities.ProjectEntity;
 
 @Repository
-public interface ProjectRepository extends JpaRepository<ProjectEntity, Long>{
+public interface ProjectRepository extends JpaRepository<ProjectEntity, Integer>{
 
 }

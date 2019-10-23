@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jda.crystalball.friday.entities.TaskEntity;
@@ -46,5 +47,10 @@ public class TaskController
             @Valid @RequestBody TaskEntity taskEntity) 
     {
         return taskService.updateTask(id, taskEntity);
+    }
+
+    @RequestMapping(value = "/projecttemplate/", method = RequestMethod.GET)
+    public List<TaskEntity> getTemplateTasks(@RequestParam String type, @RequestParam String phase, @RequestParam int solution) {
+        return taskService.getTemplateTasks(type,phase, solution);
     }
 }

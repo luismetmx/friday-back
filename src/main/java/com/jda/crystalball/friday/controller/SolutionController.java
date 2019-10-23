@@ -36,13 +36,13 @@ public class SolutionController
     }
  
     @RequestMapping(value = "/deletesolution/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteSolution(@PathVariable(value = "id") Long id) 
+    public ResponseEntity<Object> deleteSolution(@PathVariable(value = "id") int id) 
     {
         return solutionService.deleteSolution(id);
     }
  
     @RequestMapping(value = "/updatesolution/{id}", method = RequestMethod.PUT)
-    public SolutionEntity updateSolution(@PathVariable(value = "id") Long id,
+    public SolutionEntity updateSolution(@PathVariable(value = "id") int id,
             @Valid @RequestBody SolutionEntity solutionEntity) 
     {
         return solutionService.updateSolution(id, solutionEntity);

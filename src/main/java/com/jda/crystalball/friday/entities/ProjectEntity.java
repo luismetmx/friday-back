@@ -19,6 +19,9 @@ public class ProjectEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     int Id;
 
+    @Column(name = "name")
+    String name;
+
     @Column(name = "project_type")
     String projectType;
 
@@ -66,5 +69,12 @@ public class ProjectEntity {
         this.compDatetime = compDatetime;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
 }

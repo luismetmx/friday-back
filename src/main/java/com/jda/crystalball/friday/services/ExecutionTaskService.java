@@ -21,6 +21,10 @@ public class ExecutionTaskService
 	public List<ExecutionTaskEntity> getAllExecutionTasks()
 	{
 		return (List<ExecutionTaskEntity>) executionTaskRepository.findAll();
+    }
+    public List<ExecutionTaskEntity> getExecutionTasksByStatus(String status)
+	{
+		return (List<ExecutionTaskEntity>) executionTaskRepository.findByStatus(status);
 	}
 	
 	public ExecutionTaskEntity createExecutionTask(ExecutionTaskEntity executionTask)

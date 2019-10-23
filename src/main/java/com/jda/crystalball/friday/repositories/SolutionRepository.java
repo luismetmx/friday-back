@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.jda.crystalball.friday.entities.SolutionEntity;
 
 @Repository
-public interface SolutionRepository extends JpaRepository<SolutionEntity, Long>
+public interface SolutionRepository extends JpaRepository<SolutionEntity, Integer>
 {
-
+    
 }

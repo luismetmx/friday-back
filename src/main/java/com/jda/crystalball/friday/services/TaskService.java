@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.jda.crystalball.friday.entities.SolutionEntity;
 import com.jda.crystalball.friday.entities.TaskEntity;
 import com.jda.crystalball.friday.repositories.TaskRepository;
 
@@ -17,6 +18,8 @@ public class TaskService
 {
 	@Autowired
 	TaskRepository taskRepository;
+	@Autowired
+	SolutionService solutionService;
 	
 	public List<TaskEntity> getAllTask()
 	{
@@ -64,5 +67,13 @@ public class TaskService
             throw new EntityNotFoundException();
         }
         return ResponseEntity.ok().build();
-    }
+	}
+	
+	public List<TaskEntity> getTemplateTasks(String type, String phase, int solutionID) {
+		System.out.println("getTemplate Tasks 0");
+		SolutionEntity sol = solutionService.getSolutionByID(solutionID);
+		System.out.println("getTemplate Tasks 1");
+		System.out.println(sol);
+		return (List<TaskEntity>) taskRepository.findByIsActiveTrueAndProjectTypeAndPhaseAndSolutionEntity(type,phase, sol);
+	}
 }

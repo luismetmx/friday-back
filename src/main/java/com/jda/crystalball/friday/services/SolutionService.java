@@ -22,13 +22,27 @@ public class SolutionService
 	{
 		return (List<SolutionEntity>) solutionRepository.findAll();
 	}
+
+	public SolutionEntity getSolutionByID(int id){
+		SolutionEntity solution;
+		Optional<SolutionEntity> searchEntity = solutionRepository.findById(id);
+
+		if (searchEntity.isPresent())
+		{
+			solution = searchEntity.get();
+		} else {
+			throw new EntityNotFoundException();
+		}
+
+		return solution;
+	}
 	
 	public SolutionEntity createSolution(SolutionEntity solution)
 	{
 		return solutionRepository.save(solution);
 	}
 	
-	public SolutionEntity updateSolution(Long Id, SolutionEntity solution)
+	public SolutionEntity updateSolution(int Id, SolutionEntity solution)
 	{
 		SolutionEntity updatedSolution;
 		Optional<SolutionEntity> searchEntity = solutionRepository.findById(Id);
@@ -46,7 +60,7 @@ public class SolutionService
         return updatedSolution;
 	}
 	
-	public ResponseEntity<Object> deleteSolution(Long Id)
+	public ResponseEntity<Object> deleteSolution(int Id)
 	{
         Optional<SolutionEntity> sampleEntity = solutionRepository.findById(Id);
         if (sampleEntity.isPresent()) 
